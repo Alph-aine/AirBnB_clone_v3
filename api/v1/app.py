@@ -20,6 +20,7 @@ def teardown_db(exception):
     """closes current sqlAlchemy session after each request"""
     storage.close()
 
+
 @app.errorhandler(404)
 def error_404(exception):
     """error response when 404 is encountered"""
