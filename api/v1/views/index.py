@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+"""route to api status response"""
 from api.v1.views import app_views
 from models import storage
 from flask import jsonify, request
