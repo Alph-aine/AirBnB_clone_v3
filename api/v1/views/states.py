@@ -44,6 +44,6 @@ def get_state_with_id(state_id=None):
         obj_data = request.get_json()
         if obj_data is None:
             abort(400, 'Not a JSON')
-        state_obj.name = obj_data['name'] 
+        state_obj.name = obj_data['name']
         state_obj.save()
         return jsonify(state_obj.to_dict()), 200
