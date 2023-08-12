@@ -1,5 +1,8 @@
 #!/usr/bin/python3
-"""returns all the details about State"""
+"""
+returns all the details about State
+"""
+
 from api.v1.views import app_views
 from flask import jsonify, make_response, request, abort
 from models import storage
@@ -28,6 +31,7 @@ def get_all_states():
 @app_views.route('/states/<state_id>', methods=['GET', 'DELETE', 'PUT'],
                  strict_slashes=False)
 def get_state_with_id(state_id=None):
+    """performs operation on a specific state object"""
     state_obj = storage.get('State', state_id)
     if state_obj is None:
         abort(404, 'Not found')
