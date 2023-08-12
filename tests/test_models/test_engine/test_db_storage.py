@@ -68,6 +68,15 @@ test_db_storage.py'])
                             "{:s} method needs a docstring".format(func[0]))
 
 
+@unittest.skipIf(models.storage_t !='db', 'skip if environ is not db')
+class TestGetCount(unittest.TestCase):
+    """testing count and get methods"""
+
+    @classmethod
+    def SetUpClass(cls):
+        """sets up class for this round of tests"""
+
+
 class TestFileStorage(unittest.TestCase):
     """Test the FileStorage class"""
     @unittest.skipIf(models.storage_t != 'db', "not testing db storage")
