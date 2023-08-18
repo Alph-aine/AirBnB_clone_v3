@@ -28,7 +28,7 @@ def get_amenity():
 
 @app_views.route('/amenities/<amenity_id>', methods=['GET', 'DELETE', 'PUT'],
                  strict_slashes=False)
-def amenities_with_id(amenity_id):
+def amenities_with_id(amenity_id=None):
     """Endpoint for all operations that can be perform using amenity id"""
     amenity_obj = storage.get('Amenity', amenity_id)
     if amenity_obj is None:
@@ -39,6 +39,7 @@ def amenities_with_id(amenity_id):
 
     if request.method == 'DELETE':
         amenity_obj.delete()
+        storage.save()
         return jsonify({}), 200
 
     if request.method == 'PUT':

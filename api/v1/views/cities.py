@@ -46,6 +46,7 @@ def get_city(city_id=None):
 
     if request.method == 'DELETE':
         city_obj.delete()
+        storage.save()
         return jsonify({}), 200
 
     if request.method == 'PUT':
