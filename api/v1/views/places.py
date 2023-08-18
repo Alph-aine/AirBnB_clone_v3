@@ -30,12 +30,14 @@ def places_from_cities(city_id=None):
         users = storage.get('User', post_data['user_id'])
         if users is None:
             abort(404, 'Not found')
+        post_data['city_id'] = city_obj.id
+        post_data['user_id'] = users.id
         place = Place(**post_data)
         place.save()
         return jsonify(place.to_dict()), 201
 
 
-@app_views.route('/places/<place_id>', methods=['GET', 'DELETE', 'POST'],
+@app_views.route('/places/<place_id>', methods=['GET', 'DELETE', 'PUT'],
                  strict_slashes=False)
 def places_with_placeId(place_id=None):
     """Endpoint for places with place_id"""
