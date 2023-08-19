@@ -4,6 +4,7 @@ from flask import Flask, make_response, jsonify
 from models import storage
 from api.v1.views import app_views
 import os
+from flask_cors import CORS
 
 app = Flask(__name__)
 
@@ -14,6 +15,8 @@ port = os.getenv('HBNB_API_PORT', '5000')
 # registering app with app_views blueprint
 app.register_blueprint(app_views)
 
+# enable CORS 
+cors = CORS(app, resources={r"/api/v1/*": {"origins": host}})
 
 @app.teardown_appcontext
 def teardown_db(exception):
