@@ -35,7 +35,6 @@ def reviews_from_places(place_id=None):
         if post_data.get('Text') is None:
             abort(400, 'Missing Text')
 
-        post_data['user_id'] = user.id
         post_data['place_id'] = place_obj.id
         review = Review(**post_data)
         review.save()
