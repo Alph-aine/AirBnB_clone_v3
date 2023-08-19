@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-    Endpoints for placs reviews
+Endpoints for placs reviews
 """
 
 from api.v1.views import app_views
@@ -45,7 +45,7 @@ def reviews_from_places(place_id=None):
 @app_views.route('/reviews/<review_id>', methods=['GET', 'DELETE', 'PUT'],
                  strict_slashes=False)
 def reviews_with_reviewId(review_id=None):
-    """Endpoints for reviews usign review id"""
+    """Endpoints for reviews using review id"""
     review_obj = storage.get('Review', review_id)
     if review_obj is None:
         abort(404, 'Not found')

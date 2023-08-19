@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-    Endpoints for Places
+Endpoints for Places
 """
 
 from api.v1.views import app_views
