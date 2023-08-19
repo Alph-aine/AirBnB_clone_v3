@@ -15,8 +15,9 @@ port = os.getenv('HBNB_API_PORT', '5000')
 # registering app with app_views blueprint
 app.register_blueprint(app_views)
 
-# enable CORS 
+# enable CORS
 cors = CORS(app, resources={r"/api/v1/*": {"origins": host}})
+
 
 @app.teardown_appcontext
 def teardown_db(exception):
