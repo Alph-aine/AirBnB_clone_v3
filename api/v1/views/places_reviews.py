@@ -1,5 +1,7 @@
 #!/usr/bin/python3
-"""Endpoints for placs reviews"""
+'''
+    Endpoints for placs reviews
+'''
 
 from api.v1.views import app_views
 from flask import abort, jsonify, request
@@ -7,7 +9,7 @@ from models import storage
 from models.review import Review
 
 
-@app_views.route('/places/<place_id>/reviews', methods-['GET', 'POST'],
+@app_views.route('/places/<place_id>/reviews', methods=['GET', 'POST'],
                  strict_slashes=False)
 def reviews_from_places(place_id=None):
     """endpoints for places reviews"""
