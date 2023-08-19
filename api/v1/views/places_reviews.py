@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-Endpoints for placs reviews
+Endpoints for places reviews
 """
 
 from api.v1.views import app_views
