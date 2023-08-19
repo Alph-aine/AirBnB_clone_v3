@@ -18,8 +18,10 @@ def reviews_from_places(place_id=None):
         abort(404, 'Not found')
 
     if request.method == 'GET':
-        all_reviews = [obj.to_dict() for obj in place_obj.reviews]
-        return jsonify(all_reviews)
+        all_reviews = storage.all('Review')
+        place_review = [obj.to_dict() for obj in all_reviews.values()
+                        if obj.place_id == place_id]
+        return jsonify(place_review)
 
     if request.method == 'POST':
         post_data = request.get_json()
